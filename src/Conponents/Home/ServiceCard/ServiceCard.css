@@ -1,0 +1,13 @@
+.cardContent{
+    transition: all .5s ease-in-out;
+}
+.cardContent:hover{
+    background : #fff;
+    box-shadow: 2px 3px 7px rgba(128, 128, 128, 0.281);
+}
+.orderService{
+
+}
+.orderService:hover{
+    text-decoration: none;
+}
