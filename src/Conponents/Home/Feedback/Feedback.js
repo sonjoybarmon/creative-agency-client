@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import FeedbackCard from '../FeedbackCard/FeedbackCard';
 
+import { css } from "@emotion/core";
+import { PuffLoader } from 'react-spinners';
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 const Feedback = () => {
     const [review , setReview] = useState([])
     useEffect(() => {
@@ -17,6 +25,14 @@ const Feedback = () => {
                 <h1 className='my-5 text-center'>Clients <span style={{color: '#7AB259'}}> Feedback</span></h1>
             
                 <div className="row">
+                    {
+                        review.length === 0 &&
+                        <PuffLoader
+                            css={override}
+                            size={150}
+                            color={"#0f3057"}
+                        />
+                    }
                     {
                       review.map(feed => <FeedbackCard key={review._id} feed={feed} ></FeedbackCard>)  
                     }
