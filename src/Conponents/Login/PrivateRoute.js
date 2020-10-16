@@ -6,11 +6,9 @@ import jwt_decode from "jwt-decode";
 
 const PrivateRoute = ({children, ...rest}) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    
     const [adminEmail, setAdminEmail] = useState([]);
-
     useEffect(()=>{
-        fetch("http://localhost:8080/getEmail?email=" + loggedInUser.email)
+        fetch("https://boiling-retreat-75271.herokuapp.com/getEmail?email=" + loggedInUser.email)
         .then(res=>res.json())
         .then(data => setAdminEmail(data))
     }, [])
@@ -28,7 +26,7 @@ const PrivateRoute = ({children, ...rest}) => {
         <Route
       {...rest}
       render={({ location }) =>
-        (loggedInUser.email || loggedInUser.name || adminEmail.email || isLoggedIn() ) ? (
+        (loggedInUser.email || isLoggedIn() ) ? (
           children
         ) : (
           <Redirect

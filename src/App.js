@@ -16,8 +16,8 @@ import MAkeAdmin from './Conponents/Admin/MakeAdmin/MAkeAdmin';
 import ServiceCard from './Conponents/Customar/ServiceCard/ServiceCard';
 import PrivateRoute from './Conponents/Login/PrivateRoute';
 import NotFound from './Conponents/NotFound/NotFound';
-export const UserContext = createContext();
 
+export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
 
@@ -58,7 +58,6 @@ function App() {
               <PrivateRoute path='/makeAdmin'>
                   <MAkeAdmin />
               </PrivateRoute>
-
               <Route path='*'>
                     <NotFound />
               </Route>

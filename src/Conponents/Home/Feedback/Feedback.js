@@ -13,7 +13,7 @@ const override = css`
 const Feedback = () => {
     const [review , setReview] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8080/reviews')
+        fetch('https://boiling-retreat-75271.herokuapp.com/reviews')
         .then(res => res.json())
         .then(data => {
             setReview(data)

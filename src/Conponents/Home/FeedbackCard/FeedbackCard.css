@@ -1,0 +1,9 @@
+.feedcard{
+    transition: all .5s ease-in-out;
+    transform: scale(1);
+}
+.feedcard:hover{
+    background : #f1f1f1;
+    box-shadow: 2px 3px 7px rgb(255, 255, 255);
+    transform: scale(1.1);
+}

@@ -13,7 +13,7 @@ const MAkeAdmin = () => {
     
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:8080/addEmail', {
+        fetch('https://boiling-retreat-75271.herokuapp.com/addEmail', {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'

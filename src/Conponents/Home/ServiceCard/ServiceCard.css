@@ -1,9 +1,11 @@
 .cardContent{
     transition: all .5s ease-in-out;
+    transform: scale(1);
 }
 .cardContent:hover{
     background : #fff;
     box-shadow: 2px 3px 7px rgba(128, 128, 128, 0.281);
+    transform: scale(1.1);
 }
 .orderService{
 

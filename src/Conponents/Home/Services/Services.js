@@ -14,7 +14,7 @@ const override = css`
 const Services = () => {
     const [getService , setGetService] = useState([])
     useEffect(()=>{
-        fetch("http://localhost:8080/getService")
+        fetch("https://boiling-retreat-75271.herokuapp.com/getService")
         .then(res => res.json())
         .then(data => {
             setGetService(data)
