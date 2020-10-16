@@ -2,6 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './Services.css';
 import ServiceCard from '../ServiceCard/ServiceCard';
 
+import { css } from "@emotion/core";
+import { RingLoader } from 'react-spinners';
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 const Services = () => {
     const [getService , setGetService] = useState([])
     useEffect(()=>{
@@ -19,6 +28,15 @@ const Services = () => {
                         <span style={{color:'#7AB259'}}> services </span>
                      </h2>
                      <div className='row'>
+                    {
+                        getService.length === 0 &&
+                        <RingLoader
+                            css={override}
+                            size={150}
+                            color={"#0f3057"}
+                        />
+                    }
+
                         {
                             getService.map(service => <ServiceCard key={Math.random()} 
                             service={service}></ServiceCard>)

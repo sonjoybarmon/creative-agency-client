@@ -6,24 +6,11 @@ import icon2 from '../../../images/icons/service5.png';
 import ServiceCard from '../ServiceCard/ServiceCard';
 import { UserContext } from '../../../App';
 
-// const serviceOrder = [
-//     {
-//         img : icon1,
-//         button : 'Pending' ,
-//         title : 'Web & Mobile design',
-//         description : 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.',
-//         id : 1
-//     },
-//     {
-//         img : icon2,
-//         button : 'Done' ,
-//         title : 'Graphic design',
-//         description : 'Amazing flyers, social media posts and brand representations that would make your brand stand out.',
-//         id : 2
-//     }
-// ]
+// import { css } from "@emotion/core";
+// import ClipLoader from "react-spinners/ClipLoader";
 
 const ServiceList = () => {
+
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const logoStyle = {
         width : '150px',
@@ -78,7 +65,8 @@ const ServiceList = () => {
                         <div className="orderSubmit">
                             <div className="row">
                             {
-                            orderService.map(service => <ServiceCard key={service.id}  service={service}></ServiceCard>)}
+                            orderService.map(service => <ServiceCard key={service.id}  service={service}></ServiceCard>)
+                            }
                             </div>
                         </div>
                     </div>
