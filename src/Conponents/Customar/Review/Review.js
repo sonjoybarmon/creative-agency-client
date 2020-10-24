@@ -1,17 +1,17 @@
-import React, { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../images/logos/logo.png';
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../../App';
+import Sidebar from '../Sidebar/Sidebar';
 
 const Review = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const logoStyle = {
         width : '150px',
     }
-    const {review , setReview} = useState([]);
-    
-    const { register, handleSubmit, watch, errors } = useForm();
+
+    const { register, handleSubmit } = useForm();
     const onSubmit = data =>{
         data.email = `${loggedInUser.email}` ;
         fetch('https://boiling-retreat-75271.herokuapp.com/addReview', {
@@ -27,7 +27,6 @@ const Review = () => {
                 alert('your review successful')
             }
         })
-        console.log(data);
     }
      
     return (
@@ -49,28 +48,15 @@ const Review = () => {
         
         <div className="row">
                 <div className="col-md-3">
-                    <div className="orderList">
-                        <NavLink className="orderLi" activeClassName='text-primary' to="/order">
-                            Order
-                        </NavLink>
-                        <NavLink className="orderLi" activeClassName='text-primary' to="/serviceList">
-                            Service list
-                        </NavLink>
-                        <NavLink className="orderLi" activeClassName='text-primary' to="/review">
-                            Review
-                        </NavLink>
-                        {/* <NavLink className="orderLi" activeClassName='text-primary' to="/admin">
-                              <button style={{width:'150px' , height:'40px' , fontSize:'16px' , background:'#111430' ,color:'#FFFFFF' , borderRadius:'10px' , marginTop :'20px'}} className='btn'> Admin Panel </button>   
-                        </NavLink> */}
-                    </div>
+                    <Sidebar />
                 </div>
                 
                 <div className="col-md-9">
                     <div className="orderSubmit">
                     <form onSubmit={handleSubmit(onSubmit)} >
-                            <input name="name" style={{width:'570px', padding:'20px 10px'}} placeholder='Your name ' className='form-control' ref={register({ required: true })} /> <br/> 
-                            <input name="company" style={{width:'570px', padding:'20px 10px'}} placeholder='Company’s name, Designation' className='form-control' ref={register({ required: true })} /> <br/>
-                            <textarea name="description" style={{width:'570px', padding:'20px 10px'}} placeholder='Description' className='form-control' ref={register({ required: true })} /> <br/>
+                            <input name="name" style={{width:'570px', padding:'20px 10px'}} placeholder='Your name ' className='form-control form_input' ref={register({ required: true })} /> <br/> 
+                            <input name="company" style={{width:'570px', padding:'20px 10px'}} placeholder='Company’s name, Designation' className='form-control form_input' ref={register({ required: true })} /> <br/>
+                            <textarea name="description" style={{width:'570px', padding:'20px 10px'}} placeholder='Description' className='form-control form_input' ref={register({ required: true })} /> <br/>
                             <input type="submit" value='SUBMIT' style={{width:'150px' , height:'40px' , fontSize:'16px' , background:'#111430' ,color:'#FFFFFF' , borderRadius:'10px' , marginTop :'20px'}} />
                             </form>
                     </div>

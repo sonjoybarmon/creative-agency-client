@@ -1,22 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../../images/logos/logo.png';
-import icon1 from '../../../images/icons/service4.png';
-import icon2 from '../../../images/icons/service5.png';
 import ServiceCard from '../ServiceCard/ServiceCard';
 import { UserContext } from '../../../App';
-
-// import { css } from "@emotion/core";
-// import ClipLoader from "react-spinners/ClipLoader";
+import Sidebar from '../Sidebar/Sidebar';
 
 const ServiceList = () => {
 
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser ] = useContext(UserContext);
     const logoStyle = {
         width : '150px',
     }
     const [orderService , setOrderService] = useState([])
-
+//check order by email
     useEffect(()=>{
         fetch("https://boiling-retreat-75271.herokuapp.com/review?email=" + loggedInUser.email)
         .then(res => res.json())
@@ -24,8 +20,6 @@ const ServiceList = () => {
             setOrderService(data)
         })
     }, [])
-
-   
     return (
         <div style={{background: '#FFFFFF'}}>
             <div className='container'>
@@ -45,20 +39,7 @@ const ServiceList = () => {
             
             <div className="row">
                     <div className="col-md-3">
-                        <div className="orderList">
-                            <NavLink className="orderLi" activeClassName='text-primary' to="/order">
-                                Order
-                            </NavLink>
-                            <NavLink className="orderLi" activeClassName='text-primary' to="/serviceList">
-                                Service list
-                            </NavLink>
-                            <NavLink className="orderLi" activeClassName='text-primary' to="/review">
-                                Review
-                            </NavLink>
-                            {/* <NavLink className="orderLi" activeClassName='text-primary' to="/admin">
-                                <button style={{width:'150px' , height:'40px' , fontSize:'16px' , background:'#111430' ,color:'#FFFFFF' , borderRadius:'10px' , marginTop :'20px'}} className='btn'> Admin Panel </button>  
-                            </NavLink> */}
-                        </div>
+                        <Sidebar />
                     </div>
                     
                     <div className="col-md-9">

@@ -23,7 +23,7 @@ const Feedback = () => {
         <section style={{padding:'100px'}}>
             <div className='container'>
                 <h1 className='my-5 text-center'>Clients <span style={{color: '#7AB259'}}> Feedback</span></h1>
-            
+            </div>
                 <div className="row">
                     {
                         review.length === 0 &&
@@ -37,7 +37,7 @@ const Feedback = () => {
                       review.map(feed => <FeedbackCard key={review._id} feed={feed} ></FeedbackCard>)  
                     }
                 </div>
-            </div>
+            
         </section>
     );
 };

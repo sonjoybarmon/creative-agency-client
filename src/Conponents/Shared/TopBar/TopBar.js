@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './TopBar.css';
 import Logo from '../../../images/logos/logo.png';
+import { UserContext } from '../../../App';
 
 const TopBar = () => {
+    const [loggedInUser ] = useContext(UserContext);
     return (
         <Navbar expand="lg">
             <div className='container
@@ -33,13 +35,13 @@ const TopBar = () => {
                         </li>
                         <li>
                             <NavLink to='/login'> 
-                            <button style={{width:'120px' , height:'40px' , fontSize:'16px' , background:'#111430' ,color:'#FFFFFF'}}  className='btn mt-2'>Login</button> </NavLink>
+                            <button style={{width:'150px' , height:'40px' , fontSize:'16px' , background:'#111430' ,color:'#FFFFFF'}}  className='btn mt-2'>
+                                 {
+                                    loggedInUser.email ? loggedInUser.name : 'Login'
+                                }
+                            </button> 
+                            </NavLink>
                         </li>
-                        <li>
-                            <NavLink to='/admin'> 
-                            <button style={{width:'100px' , height:'40px' , fontSize:'16px' ,color:'#FFFFFF'}}  className='btn mt-2 ml-3 btn-primary'>Admin</button> </NavLink>
-                        </li>
-                        
                     </Nav>
                 </Navbar.Collapse>
             </div>

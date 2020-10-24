@@ -1,17 +1,18 @@
-import React, { useContext, useState } from 'react';
-import { Link, NavLink, useParams } from 'react-router-dom';
+import React, { useContext} from 'react';
+import { Link, useParams } from 'react-router-dom';
 import logo from '../../../images/logos/logo.png';
 import './Order.css';
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../../App';
+import Sidebar from '../Sidebar/Sidebar';
 
 const Order = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const {title} = useParams()
     const logoStyle = {
         width : '150px',
     }
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         data.email = `${loggedInUser.email}` ;
         data.Design = {title};
@@ -50,29 +51,16 @@ const Order = () => {
             
             <div className="row">
                     <div className="col-md-3">
-                        <div className="orderList">
-                            <NavLink className="orderLi" activeClassName='text-primary' to="/order">
-                                Order
-                            </NavLink>
-                            <NavLink className="orderLi" activeClassName='text-primary' to="/serviceList">
-                                Service list
-                            </NavLink>
-                            <NavLink className="orderLi" activeClassName='text-primary' to="/review">
-                                Review
-                            </NavLink>
-                            {/* <NavLink className="orderLi" activeClassName='text-primary' to="/admin">
-                                <button style={{width:'150px' , height:'40px' , fontSize:'16px' , background:'#111430' ,color:'#FFFFFF' , borderRadius:'10px' , marginTop :'20px'}} className='btn'> Admin Panel </button> 
-                            </NavLink> */}
-                        </div>
+                        <Sidebar />
                     </div>
                     
                     <div className="col-md-9">
                         <div className="orderSubmit">
                             <form onSubmit={handleSubmit(onSubmit)} >
-                            <input name="name" style={{width:'570px', padding:'20px 10px'}} placeholder='Your name / company’s name' className='form-control' ref={register({ required: true })} /> <br/> 
-                            <input name="email" value={loggedInUser.email || ''} style={{width:'570px', padding:'20px 10px'}} placeholder='Your email address' className='form-control' ref={register({ required: true })} disabled /> <br/>
-                            <input name="Design" value={title} style={{width:'570px', padding:'20px 10px'}} placeholder='Graphic Design' className='form-control' ref={register({ required: true })} disabled/> <br/>
-                            <textarea name="Details" style={{width:'570px', padding:'20px 10px'}} placeholder='Project Details' className='form-control' ref={register({ required: true })} /> <br/>
+                            <input name="name" style={{width:'570px', padding:'20px 10px'}} placeholder='Your name / company’s name' className='form-control form_input' ref={register({ required: true })} /> <br/> 
+                            <input name="email" value={loggedInUser.email || ''} style={{width:'570px', padding:'20px 10px'}} placeholder='Your email address' className='form-control form_input' ref={register({ required: true })} disabled /> <br/>
+                            <input name="Design" value={title} style={{width:'570px', padding:'20px 10px'}} placeholder='Graphic Design' className='form-control form_input' ref={register({ required: true })} disabled/> <br/>
+                            <textarea name="Details" style={{width:'570px', padding:'20px 10px'}} placeholder='Project Details' className='form-control form_input' ref={register({ required: true })} /> <br/>
                             <div className='d-flex'>
                                 <input name="Price" style={{width:'288px', padding:'20px 10px'}} placeholder='Price' className='form-control'  ref={register({ required: true })} /> 
                                 <label style={{width:'270px', backgroundColor: "#DEFFED", color: "#009444", border: "1px solid #009444" }} class="custom-file-upload ml-3 p-2 text-center">

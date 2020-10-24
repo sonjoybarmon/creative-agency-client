@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../images/logos/logo.png';
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../../App';
 
 const AddService = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const logoStyle = {
         width : '150px',
     }
@@ -16,9 +16,8 @@ const AddService = () => {
         borderRadius : '15px' ,
         padding :'20px'
     }
-    const {addService , setAddService} = useState([]);
     
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit} = useForm();
     const onSubmit = data =>{ 
         data.email = `${loggedInUser.email}`;
         fetch('https://boiling-retreat-75271.herokuapp.com/addService', {

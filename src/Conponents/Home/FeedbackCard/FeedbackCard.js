@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Card } from 'react-bootstrap';
-import { UserContext } from '../../../App';
 import user from '../../../images/user.png';
 import './FeedbackCard.css'
 
 const FeedbackCard = ({feed}) => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-   
     return (
-        <div className='col-md-4'>
+        <div className='col-md-4 col-sm-12 mt-4'>
             <div className=''>
                 <Card className='feedcard' style={{padding:'10px'}}>
                     <div className='d-flex'>

@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import Home from './Conponents/Home/Home/Home';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,

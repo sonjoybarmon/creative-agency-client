@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+@media(min-width:992px) and (max-width:1200px) {
+  /* .container, .container-md, .container-sm {
+    max-width: 90% !important;
+    width: 90% !important;
+  }  */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media(max-width:991px){
+  .container, .container-md, .container-sm {
+    max-width: 95% !important;
+    width: 95% !important;
+  } 
+  
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media(max-width:767px){
+    .container, .container-md, .container-sm {
+      max-width: 95% !important;
+      width: 95% !important;
+  }
+  .body_img{
+    display: none;
+  }
+  #header_p{
+    margin: 20px 0; 
+    font-size: 18px;
+  }
+
+  .orderList {
+    padding: 10px 0px 15px 30px !important;
+    display: flex;
+  }
+  a.orderLi.admin_btn {
+    margin: 0;
+  }
+    .top{
+      width: 30% !important;
+    }
+    .userData.d-flex.justify-content-between {
+      padding: 0 0px 0 30px;
+  }
+  input.form-control.form_input {
+    width: 100% !important;
+  }
+  textarea.form-control.form_input {
+    width: 100% !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
