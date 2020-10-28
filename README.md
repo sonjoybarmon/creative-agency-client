@@ -7,7 +7,7 @@ This project was react with [Create React App](https://github.com/facebook/creat
 Site is responsive, it has firebase authentication and a collection of e-mails in MongoDB from where it will differentiate whether the logged in user is a guest or an admin.
 
 ### Client 
-- An user can order service, set a price and can upload an image as a sample.
+- An user can order service,.
 - User can post reviews.
 - User will be able to see their work progress through the status.
 
